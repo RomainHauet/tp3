@@ -1,22 +1,20 @@
 import java.util.ArrayList;
 
-public class CryptoMarche {
+public class CryptoMarche
+{
 
     private ArrayList<Portefeuille> portefeuilles;
     private static CryptoMarche marche;
 
-    private CryptoMarche(){
-        portefeuilles = new ArrayList<Portefeuille>();
-    }
+    private CryptoMarche(){ portefeuilles = new ArrayList<Portefeuille>(); }
 
-    public static CryptoMarche getInstance(){
+    public static CryptoMarche getInstance()
+    {
         if(marche == null){ marche = new CryptoMarche();}
 		return marche;
     }
 
-    public void ajouter(Portefeuille p){
-        portefeuilles.add(p);
-    }
+    public void ajouter(Portefeuille p){ portefeuilles.add(p); }
 
     /**
      * Cette fonction recherche sur le marché tous les portefeuilles 
@@ -24,8 +22,8 @@ public class CryptoMarche {
      * @param proprietare
      * @return capital en euros du propriétare.
      */
-    public double capitalEnEuros(String proprietaire){
-
+    public double capitalEnEuros(String proprietaire)
+    {
         double result;
         result = 0;
 
@@ -48,10 +46,8 @@ public class CryptoMarche {
      * @param monnaie
      * @return capital total en circulation de la cryptomonnaie (en euros).
      */
-    public double capitalMonneaie(Cryptomonnaie monnaie){
-        /**
-			FONCTION À IMPLEMENTER
-        **/
+    public double capitalMonneaie(Cryptomonnaie monnaie)
+    {
         double result;
         result = 0;
 
@@ -68,12 +64,12 @@ public class CryptoMarche {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         String ret = "";
         for(Portefeuille p : this.portefeuilles){
             ret += p.toString() + "\n";
         }
         return ret;
     }
-
 }
